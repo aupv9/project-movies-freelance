@@ -1,8 +1,10 @@
 package com.project.movie.dao;
 
 import com.project.movie.document.User;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends MongoRepository<User, ObjectId> {
+
+@Repository
+public interface UserRepository extends MongoRepository<User, String> {
 }
