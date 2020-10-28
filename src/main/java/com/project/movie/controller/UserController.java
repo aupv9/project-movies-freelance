@@ -1,6 +1,7 @@
 package com.project.movie.controller;
 
 import com.project.movie.document.User;
+import com.project.movie.payload.response.MessageResponse;
 import com.project.movie.service.user.UserServiceImp;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,19 @@ public class UserController {
     }
 
     @PostMapping(value = "/user",produces = "application/json")
-    public ResponseEntity<Boolean> insertUser(@RequestBody @Validated User user){
+    public ResponseEntity<?> insertUser(@RequestBody @Validated User user){
         log.info("insertUser information");
+        if (userServiceImp.existsUserByUserName(user.getUserName())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: Username is already taken!"));
+        }
+
+        if (userServiceImp.existsUserByEmail(user.getEmail())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: Email is already in use!"));
+        }
         return this.userServiceImp.insertUser(user) ? new ResponseEntity<>(true, HttpStatus.CREATED) :
                 new ResponseEntity<>(false,HttpStatus.NOT_MODIFIED);
     }

@@ -9,4 +9,6 @@ public interface UserService {
     boolean updateUser(User user);
     void delUser(String id);
     User findUserById(String id);
+    boolean existsUserByUserName(String username);
+    boolean existsUserByEmail(String email);
 }

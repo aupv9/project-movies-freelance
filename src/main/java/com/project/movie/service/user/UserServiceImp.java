@@ -51,4 +51,14 @@ public class UserServiceImp implements UserService{
     public User findUserById(String id) {
         return userRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
+
+    @Override
+    public boolean existsUserByUserName(String username) {
+        return userRepository.existsUserByUserName(username);
+    }
+
+    @Override
+    public boolean existsUserByEmail(String email) {
+        return userRepository.existsUserByEmail(email);
+    }
 }
