@@ -6,5 +6,9 @@ import java.util.List;
 
 public interface FilmService {
     List<Film> findAll();
-
+    Boolean insertFilm(Film film);
+    Boolean updateFilm(Film film);
+    void delFilm(String id);
+    Film findFilmById(String id);
+    List<Film> findFimlByAge(int age);
 }

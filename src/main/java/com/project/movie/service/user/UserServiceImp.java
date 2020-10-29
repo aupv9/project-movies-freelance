@@ -38,7 +38,7 @@ public class UserServiceImp implements UserService{
         user1.setUserName(user.getUserName());
         user1.setRole(user.getRole());
         user1.setSaved_video(user.getSaved_video());
-        return (userRepository.save(user1) instanceof User) ? true : false;
+        return userRepository.save(user1) instanceof User;
     }
 
     @Override

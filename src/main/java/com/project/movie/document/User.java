@@ -19,7 +19,7 @@ public class User {
 
     @Id
     private String id;
-    @Indexed
+    @Indexed(unique = true)
     private String userName;
     private String password;
     private String firstName;
@@ -27,7 +27,7 @@ public class User {
     private LocalDateTime birthDay;
     private LocalDateTime create_At;
     private LocalDateTime modify_At;
-    @Indexed
+    @Indexed(unique = true)
     private String email;
     private String phone;
     private Member member;
