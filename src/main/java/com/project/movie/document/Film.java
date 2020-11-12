@@ -24,18 +24,15 @@ public class Film {
     private String image;
     private String status;
     private List<String> director;
-    private List<String> genre_id;
+    private String genre;
     private String types;
     private String nation;
     private String quality;
     private String language;
     private Integer time;
-    @NonNull
     private LocalDateTime release;
     private String content;
-    @NonNull
     private LocalDateTime createAt;
-    @NonNull
     private LocalDateTime modifyAt;
     private Boolean statusActive;
     private String url;
